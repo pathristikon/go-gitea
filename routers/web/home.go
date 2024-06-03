@@ -61,7 +61,11 @@ func Home(ctx *context.Context) {
 
 	ctx.Data["PageIsHome"] = true
 	ctx.Data["IsRepoIndexerEnabled"] = setting.Indexer.RepoIndexerEnabled
-	ctx.HTML(http.StatusOK, tplHome)
+	
+	ctx.Redirect(setting.AppSubURL + "/explore/repos")
+	return 
+
+	//ctx.HTML(http.StatusOK, tplHome)
 }
 
 // HomeSitemap renders the main sitemap
